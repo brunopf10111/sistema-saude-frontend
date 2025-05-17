@@ -1,0 +1,347 @@
+/* Estilos gerais */
+.home-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  line-height: 1.6;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Header */
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.clinic-name {
+  color: #2a7f62;
+  font-size: 2rem;
+  margin: 0;
+  font-weight: 700;
+}
+
+.clinic-slogan {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-button {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: #e0f7f0;
+  color: #2a7f62;
+}
+
+/* Banner hero */
+.hero-banner {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+              url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+  background-size: cover;
+  background-position: center;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.hero-content {
+  max-width: 800px;
+  padding: 2rem;
+}
+
+.hero-banner h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-banner p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  background-color: #2a7f62;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #1e5f4a;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Seções */
+.home-content {
+  padding: 4rem 5%;
+}
+
+.section-title {
+  color: #2a7f62;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 3px;
+  background-color: #2a7f62;
+  margin: 1rem auto;
+}
+
+/* Sobre a clínica */
+.about-section {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 5rem;
+  align-items: center;
+}
+
+.section-content {
+  flex: 1;
+}
+
+.about-image {
+  flex: 1;
+  height: 400px;
+  background: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2a7f62;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Dicas de saúde */
+.health-tips {
+  margin-bottom: 5rem;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.tip-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.tip-card:hover {
+  transform: translateY(-10px);
+}
+
+.tip-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background-color: #e0f7f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #2a7f62;
+}
+
+.tip-icon.nutrition {
+  background-image: url('https://cdn-icons-png.flaticon.com/512/1046/1046857.png');
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.tip-icon.exercise {
+  background-image: url('https://cdn-icons-png.flaticon.com/512/2936/2936886.png');
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.tip-icon.sleep {
+  background-image: url('https://cdn-icons-png.flaticon.com/512/346/346195.png');
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.tip-icon.stress {
+  background-image: url('https://cdn-icons-png.flaticon.com/512/346/346167.png');
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.tip-card h3 {
+  color: #2a7f62;
+  margin-bottom: 1rem;
+}
+
+/* Serviços */
+.services-section {
+  margin-bottom: 5rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 2rem;
+  border-top: 5px solid #2a7f62;
+}
+
+.service-card h3 {
+  color: #2a7f62;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.service-card ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.service-card li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.service-card li:last-child {
+  border-bottom: none;
+}
+
+/* Rodapé */
+.home-footer {
+  background-color: #2a7f62;
+  color: white;
+  padding: 3rem 5% 1rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.footer-section h3::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 2px;
+  background-color: white;
+  margin: 0.5rem 0;
+}
+
+.footer-section p {
+  margin: 0.5rem 0;
+}
+
+.copyright {
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .home-header {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .nav-buttons {
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .hero-banner h2 {
+    font-size: 2rem;
+  }
+  
+  .hero-banner p {
+    font-size: 1.2rem;
+  }
+  
+  .about-section {
+    flex-direction: column;
+  }
+  
+  .about-image {
+    width: 100%;
+    margin-top: 2rem;
+  }
+}

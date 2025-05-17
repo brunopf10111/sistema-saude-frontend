@@ -1,0 +1,93 @@
+/* Estilo geral para containers */
+.consultas-container, .atendimentos-container, .medicamentos-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #f7f9fc;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+/* Títulos e parágrafos */
+.consultas-container h1,
+.atendimentos-container h1,
+.medicamentos-container h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  color: #0d6efd;
+  font-weight: 700;
+}
+
+.consultas-container p,
+.atendimentos-container p,
+.medicamentos-container p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+/* Estilo para tabelas */
+.consultas-table, .atendimentos-table, .medicamentos-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.consultas-table th,
+.atendimentos-table th,
+.medicamentos-table th {
+  background-color: #0d6efd;
+  color: white;
+  font-weight: 600;
+  padding: 12px 15px;
+  text-align: left;
+  user-select: none;
+}
+
+.consultas-table td,
+.atendimentos-table td,
+.medicamentos-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+  color: #333;
+}
+
+.consultas-table tr:hover,
+.atendimentos-table tr:hover,
+.medicamentos-table tr:hover {
+  background-color: #f0f5ff;
+  cursor: pointer;
+}
+
+/* Link de voltar */
+.back-link {
+  margin-top: 25px;
+}
+
+.back-link a {
+  text-decoration: none;
+  color: #0d6efd;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.back-link a:hover {
+  color: #084298;
+}
+
+/* Responsividade simples */
+@media (max-width: 600px) {
+  .consultas-container, .atendimentos-container, .medicamentos-container {
+    margin: 20px 10px;
+    padding: 15px;
+  }
+
+  .consultas-table th, .consultas-table td {
+    padding: 10px 8px;
+  }
+}

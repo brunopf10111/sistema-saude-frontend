@@ -1,0 +1,28 @@
+.atendimentos-container {
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+}
+
+.atendimentos-container h1 {
+  color: #0066cc;
+  margin-bottom: 1rem;
+}
+
+.atendimentos-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.atendimentos-table th,
+.atendimentos-table td {
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.atendimentos-table th {
+  background-color: #f4f4f4;
+  color: #333;
+}
