@@ -1,7 +1,22 @@
-import './styles.css';
-import { Link } from 'react-router-dom';
+import "./styles.css";
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Consultas = () => {
+  const [consultas, setConsultas] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/consultas")
+      .then((response) => {
+        setConsultas(response.data);
+      })
+      .catch((error) => {
+        console.error("Erro ao buscar consultas:", error);
+      });
+  }, []);
+
   return (
     <div className="consultas-container">
       <h1>Consultas</h1>
@@ -17,7 +32,14 @@ const Consultas = () => {
           </tr>
         </thead>
         <tbody>
-          {/* Dados vindos do banco de dados serão inseridos aqui */}
+          {consultas.map((consulta, index) => (
+            <tr key={index}>
+              <td>{consulta.data}</td>
+              <td>{consulta.nomePaciente}</td>
+              <td>{consulta.nomeMedico}</td>
+              <td>{consulta.status}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
 

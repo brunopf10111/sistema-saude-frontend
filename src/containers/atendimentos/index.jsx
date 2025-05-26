@@ -1,7 +1,22 @@
-import './styles.css';
-import { Link } from 'react-router-dom';
+import "./styles.css";
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Atendimentos = () => {
+  const [atendimentos, setAtendimentos] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/atendimentos")
+      .then((response) => {
+        setAtendimentos(response.data);
+      })
+      .catch((error) => {
+        console.error("Erro ao buscar atendimentos:", error);
+      });
+  }, []);
+
   return (
     <div className="atendimentos-container">
       <h1>Atendimentos</h1>
@@ -17,23 +32,18 @@ const Atendimentos = () => {
           </tr>
         </thead>
         <tbody>
-          {/* Dados dinâmicos serão inseridos aqui */}
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
+          {atendimentos.map((atendimento, index) => (
+            <tr key={index}>
+              <td>{atendimento.data}</td>
+              <td>{atendimento.nomePaciente}</td>
+              <td>{atendimento.nomeFuncionario}</td>
+              <td>{atendimento.descricao}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
 
-      <div className="back-link" style={{ marginTop: '20px' }}>
+      <div className="back-link" style={{ marginTop: "20px" }}>
         <Link to="/">← Voltar para Home</Link>
       </div>
     </div>
