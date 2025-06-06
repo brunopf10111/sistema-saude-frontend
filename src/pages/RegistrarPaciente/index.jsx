@@ -1,4 +1,4 @@
-import styles from "./Agendamento.module.css";
+import styles from "./RegistrarPaciente.module.css";
 import { useForm, Controller } from "react-hook-form";
 import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
@@ -8,7 +8,7 @@ import { IoIosSave } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-export default function Agendamento() {
+export default function RegistrarPaciente() {
   const { register, handleSubmit, control } = useForm();
   const [funcionarios, setFuncionarios] = useState([]);
   const [pacientes, setPacientes] = useState([]);
@@ -26,15 +26,13 @@ export default function Agendamento() {
 
   const onSubmit = (data) => {
     const payload = {
-      data: format(data.data, "yyyy-MM-dd"),
-      pacienteId: parseInt(data.pacienteId),
-      funcionarioId: parseInt(data.funcionarioId),
-      descricao: data.descricao,
+      nomePaciente: data.nomePaciente,
+      condicao: data.sintoma,
     };
 
     console.log("Enviando JSON:", payload);
 
-    fetch("http://localhost:8080/atendimentos", {
+    fetch("http://localhost:8080/pacientes", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
@@ -57,55 +55,23 @@ export default function Agendamento() {
     <div className={styles.paginaAgendamento}>
       <div className={styles.areaFormCliente}>
         <form onSubmit={handleSubmit(onSubmit)} className={styles.formCliente}>
-          <label>Data</label>
-          <Controller
-            name="data"
-            control={control}
-            defaultValue={new Date()}
-            render={({ field }) => (
-              <DatePicker
-                className={styles.dateInput}
-                placeholderText="Selecione a data"
-                selected={field.value}
-                onChange={field.onChange}
-                dateFormat="yyyy-MM-dd"
-              />
-            )}
-          />
-
-          <label>Paciente</label>
-          <select {...register("pacienteId")} defaultValue="">
-            <option value="" disabled>
-              Selecione o paciente
-            </option>
-            {pacientes.map((p) => (
-              <option key={p.id} value={p.id}>
-                {p.nomePaciente}
-              </option>
-            ))}
-          </select>
-          <Link to="/reg-paciente" className={styles.links}>
-            Ainda não é nosso paciente?
-          </Link>
-          <label>Médico</label>
-          <select {...register("funcionarioId")} defaultValue="">
-            <option value="" disabled>
-              Selecione o médico
-            </option>
-            {funcionarios.map((f) => (
-              <option key={f.id} value={f.id}>
-                {f.nomeFuncionario}
-              </option>
-            ))}
-          </select>
-
-          <label>Descrição</label>
+          <label>Nome Completo</label>
           <input
-            {...register("descricao")}
-            placeholder="Descreva o atendimento"
+            {...register("nomePaciente")}
+            placeholder="Escreva seu nome"
             type="text"
           />
 
+          <label>Descreva os seus sintomas ou alguma cormobidade</label>
+
+          <input
+            {...register("sintoma")}
+            placeholder="Escreva como você está sentindo"
+            type="text"
+          />
+          <Link to="/agendamento" className={styles.links}>
+            Já é nosso paciente?
+          </Link>
           <button type="submit" className={styles.btnSalvar}>
             <IoIosSave />
           </button>

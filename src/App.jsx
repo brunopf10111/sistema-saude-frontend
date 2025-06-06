@@ -4,6 +4,7 @@ import Atendimentos from "./containers/atendimentos";
 import Consultas from "./containers/consultas";
 import Medicamentos from "./containers/medicamentos"; // Importa a página Medicamentos
 import Agendamento from "./pages/Agendamento";
+import RegistrarPaciente from "./pages/RegistrarPaciente";
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
       <Route path="/consultas" element={<Consultas />} />
       <Route path="/medicamentos" element={<Medicamentos />} />
       <Route path="/agendamento" element={<Agendamento />} />
+      <Route path="/reg-paciente" element={<RegistrarPaciente />} />
       {/* Rota para Medicamentos */}
     </Routes>
   );

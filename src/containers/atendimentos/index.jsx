@@ -2,8 +2,9 @@ import "./styles.css";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import { useNavigate } from "react-router-dom";
 const Atendimentos = () => {
+  const navigate = useNavigate();
   const [atendimentos, setAtendimentos] = useState([]);
 
   useEffect(() => {
@@ -42,7 +43,9 @@ const Atendimentos = () => {
           ))}
         </tbody>
       </table>
-
+      <button onClick={() => navigate("/agendamento")} className="button">
+        Deseja agendar um atendimento?
+      </button>
       <div className="back-link" style={{ marginTop: "20px" }}>
         <Link to="/">← Voltar para Home</Link>
       </div>

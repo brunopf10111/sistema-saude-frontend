@@ -1,6 +1,6 @@
 /* Estilos gerais */
 .home-container {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
   line-height: 1.6;
   max-width: 100%;
@@ -59,8 +59,8 @@
 
 /* Banner hero */
 .hero-banner {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-              url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
   background-size: cover;
   background-position: center;
   height: 70vh;
@@ -117,7 +117,7 @@
 }
 
 .section-title::after {
-  content: '';
+  content: "";
   display: block;
   width: 80px;
   height: 3px;
@@ -140,7 +140,7 @@
 .about-image {
   flex: 1;
   height: 400px;
-  background: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+  background: url("https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
   background-size: cover;
   background-position: center;
   border-radius: 10px;
@@ -206,28 +206,28 @@
 }
 
 .tip-icon.nutrition {
-  background-image: url('https://cdn-icons-png.flaticon.com/512/1046/1046857.png');
+  background-image: url("https://cdn-icons-png.flaticon.com/512/1046/1046857.png");
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .tip-icon.exercise {
-  background-image: url('https://cdn-icons-png.flaticon.com/512/2936/2936886.png');
+  background-image: url("https://cdn-icons-png.flaticon.com/512/2936/2936886.png");
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .tip-icon.sleep {
-  background-image: url('https://cdn-icons-png.flaticon.com/512/346/346195.png');
+  background-image: url("https://cdn-icons-png.flaticon.com/512/346/346195.png");
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .tip-icon.stress {
-  background-image: url('https://cdn-icons-png.flaticon.com/512/346/346167.png');
+  background-image: url("https://cdn-icons-png.flaticon.com/512/346/346167.png");
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
@@ -297,7 +297,7 @@
 }
 
 .footer-section h3::after {
-  content: '';
+  content: "";
   display: block;
   width: 50px;
   height: 2px;
@@ -307,6 +307,7 @@
 
 .footer-section p {
   margin: 0.5rem 0;
+  color: black;
 }
 
 .copyright {
@@ -315,31 +316,35 @@
   border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+.copyright p {
+  color: black;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
   .home-header {
     flex-direction: column;
     padding: 1rem;
   }
-  
+
   .nav-buttons {
     margin-top: 1rem;
     flex-wrap: wrap;
     justify-content: center;
   }
-  
+
   .hero-banner h2 {
     font-size: 2rem;
   }
-  
+
   .hero-banner p {
     font-size: 1.2rem;
   }
-  
+
   .about-section {
     flex-direction: column;
   }
-  
+
   .about-image {
     width: 100%;
     margin-top: 2rem;

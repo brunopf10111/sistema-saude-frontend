@@ -1,5 +1,5 @@
-import './styles.css';
-import { Link } from 'react-router-dom';
+import "./styles.css";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -8,14 +8,21 @@ const Home = () => {
       <header className="home-header">
         <div className="logo-container">
           <h1 className="clinic-name">Vida&Saúde</h1>
-          <p className="clinic-slogan">Cuidando de você com amor e excelência</p>
+          <p className="clinic-slogan">
+            Cuidando de você com amor e excelência
+          </p>
         </div>
-        
+
         <nav className="nav-buttons">
-          <Link to="/consultas" className="nav-button">Agendar Consulta</Link>
-          <Link to="/medicamentos" className="nav-button">Medicamentos</Link>
-          <Link to="/atendimentos" className="nav-button">Atendimentos</Link>
-          <Link to="/contato" className="nav-button">Contato</Link>
+          <Link to="/consultas" className="nav-button">
+            Consultas
+          </Link>
+          <Link to="/medicamentos" className="nav-button">
+            Medicamentos
+          </Link>
+          <Link to="/atendimentos" className="nav-button">
+            Atendimentos
+          </Link>
         </nav>
       </header>
 
@@ -24,7 +31,9 @@ const Home = () => {
         <div className="hero-content">
           <h2>Sua saúde em primeiro lugar</h2>
           <p>Conheça nossos programas de prevenção e qualidade de vida</p>
-          <Link to="/agendamento" className="cta-button">Agende sua consulta</Link>
+          <Link to="/agendamento" className="cta-button">
+            Agende sua consulta
+          </Link>
         </div>
       </section>
 
@@ -35,9 +44,10 @@ const Home = () => {
           <div className="section-content">
             <h2 className="section-title">Nossa Missão</h2>
             <p className="section-text">
-              Na Vida&Saúde, acreditamos que a saúde é o nosso bem mais precioso. 
-              Oferecemos atendimento humanizado com profissionais qualificados e 
-              tecnologia de ponta para cuidar de você e sua família.
+              Na Vida&Saúde, acreditamos que a saúde é o nosso bem mais
+              precioso. Oferecemos atendimento humanizado com profissionais
+              qualificados e tecnologia de ponta para cuidar de você e sua
+              família.
             </p>
             <div className="stats-container">
               <div className="stat-item">
@@ -64,22 +74,32 @@ const Home = () => {
             <div className="tip-card">
               <div className="tip-icon nutrition"></div>
               <h3>Alimentação Saudável</h3>
-              <p>Consuma frutas, verduras e legumes diariamente. Evite alimentos ultraprocessados.</p>
+              <p>
+                Consuma frutas, verduras e legumes diariamente. Evite alimentos
+                ultraprocessados.
+              </p>
             </div>
             <div className="tip-card">
               <div className="tip-icon exercise"></div>
               <h3>Atividade Física</h3>
-              <p>Pratique pelo menos 30 minutos de exercícios físicos moderados todos os dias.</p>
+              <p>
+                Pratique pelo menos 30 minutos de exercícios físicos moderados
+                todos os dias.
+              </p>
             </div>
             <div className="tip-card">
               <div className="tip-icon sleep"></div>
               <h3>Sono de Qualidade</h3>
-              <p>Durma 7-8 horas por noite em um ambiente escuro e silencioso.</p>
+              <p>
+                Durma 7-8 horas por noite em um ambiente escuro e silencioso.
+              </p>
             </div>
             <div className="tip-card">
               <div className="tip-icon stress"></div>
               <h3>Controle do Estresse</h3>
-              <p>Pratique meditação, respiração profunda ou hobbies relaxantes.</p>
+              <p>
+                Pratique meditação, respiração profunda ou hobbies relaxantes.
+              </p>
             </div>
           </div>
         </section>
