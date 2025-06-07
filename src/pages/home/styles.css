@@ -8,22 +8,6 @@
 }
 
 /* Header */
-.home-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 5%;
-  background-color: #fff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.logo-container {
-  display: flex;
-  flex-direction: column;
-}
 
 .clinic-name {
   color: #2a7f62;
@@ -69,6 +53,7 @@
   justify-content: center;
   text-align: center;
   color: white;
+  width: 100%;
 }
 
 .hero-content {
@@ -321,32 +306,20 @@
 }
 
 /* Responsividade */
-@media (max-width: 768px) {
-  .home-header {
-    flex-direction: column;
-    padding: 1rem;
-  }
 
-  .nav-buttons {
-    margin-top: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+.hero-banner h2 {
+  font-size: 2rem;
+}
 
-  .hero-banner h2 {
-    font-size: 2rem;
-  }
+.hero-banner p {
+  font-size: 1.2rem;
+}
 
-  .hero-banner p {
-    font-size: 1.2rem;
-  }
+.about-section {
+  flex-direction: column;
+}
 
-  .about-section {
-    flex-direction: column;
-  }
-
-  .about-image {
-    width: 100%;
-    margin-top: 2rem;
-  }
+.about-image {
+  width: 100%;
+  margin-top: 2rem;
 }

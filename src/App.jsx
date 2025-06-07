@@ -1,10 +1,13 @@
-import { Routes, Route } from "react-router-dom";
-import Home from "./containers/home";
-import Atendimentos from "./containers/atendimentos";
-import Consultas from "./containers/consultas";
-import Medicamentos from "./containers/medicamentos"; // Importa a página Medicamentos
+import { Route, Routes } from "react-router-dom";
+
 import Agendamento from "./pages/Agendamento";
+import Atendimentos from "./pages/atendimentos";
+import Consultas from "./pages/consultas";
+import Home from "./pages/home";
+import Login from "./pages/Login";
+import Medicamentos from "./pages/medicamentos"; // Importa a página Medicamentos
 import RegistrarPaciente from "./pages/RegistrarPaciente";
+import Registro from "./pages/Registro";
 
 export default function App() {
   return (
@@ -15,6 +18,8 @@ export default function App() {
       <Route path="/medicamentos" element={<Medicamentos />} />
       <Route path="/agendamento" element={<Agendamento />} />
       <Route path="/reg-paciente" element={<RegistrarPaciente />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Registro />} />
       {/* Rota para Medicamentos */}
     </Routes>
   );

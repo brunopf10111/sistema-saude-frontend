@@ -1,12 +1,14 @@
 /* Estilo geral para containers */
-.consultas-container, .atendimentos-container, .medicamentos-container {
-  max-width: 900px;
+.consultas-container,
+.atendimentos-container,
+.medicamentos-container {
+  width: 100%;
   margin: 40px auto;
   padding: 20px;
   background: #f7f9fc;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
 }
 
@@ -29,13 +31,15 @@
 }
 
 /* Estilo para tabelas */
-.consultas-table, .atendimentos-table, .medicamentos-table {
+.consultas-table,
+.atendimentos-table,
+.medicamentos-table {
   width: 100%;
   border-collapse: collapse;
   background: white;
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .consultas-table th,
@@ -82,12 +86,15 @@
 
 /* Responsividade simples */
 @media (max-width: 600px) {
-  .consultas-container, .atendimentos-container, .medicamentos-container {
+  .consultas-container,
+  .atendimentos-container,
+  .medicamentos-container {
     margin: 20px 10px;
     padding: 15px;
   }
 
-  .consultas-table th, .consultas-table td {
+  .consultas-table th,
+  .consultas-table td {
     padding: 10px 8px;
   }
 }

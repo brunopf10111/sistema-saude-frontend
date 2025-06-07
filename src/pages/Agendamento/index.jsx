@@ -1,11 +1,14 @@
-import styles from "./Agendamento.module.css";
-import { useForm, Controller } from "react-hook-form";
-import { useEffect, useState } from "react";
-import DatePicker from "react-datepicker";
-import { format } from "date-fns";
 import "react-datepicker/dist/react-datepicker.css";
+
+import { Controller, useForm } from "react-hook-form";
+import { useEffect, useState } from "react";
+
+import Container from "../../containers/Container";
+import DatePicker from "react-datepicker";
 import { IoIosSave } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { format } from "date-fns";
+import styles from "./Agendamento.module.css";
 import { useNavigate } from "react-router-dom";
 
 export default function Agendamento() {
@@ -54,63 +57,70 @@ export default function Agendamento() {
   };
 
   return (
-    <div className={styles.paginaAgendamento}>
-      <div className={styles.areaFormCliente}>
-        <form onSubmit={handleSubmit(onSubmit)} className={styles.formCliente}>
-          <label>Data</label>
-          <Controller
-            name="data"
-            control={control}
-            defaultValue={new Date()}
-            render={({ field }) => (
-              <DatePicker
-                className={styles.dateInput}
-                placeholderText="Selecione a data"
-                selected={field.value}
-                onChange={field.onChange}
-                dateFormat="yyyy-MM-dd"
+    <>
+      <Container>
+        <div className={styles.paginaAgendamento}>
+          <div className={styles.areaFormCliente}>
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className={styles.formCliente}
+            >
+              <label>Data</label>
+              <Controller
+                name="data"
+                control={control}
+                defaultValue={new Date()}
+                render={({ field }) => (
+                  <DatePicker
+                    className={styles.dateInput}
+                    placeholderText="Selecione a data"
+                    selected={field.value}
+                    onChange={field.onChange}
+                    dateFormat="yyyy-MM-dd"
+                  />
+                )}
               />
-            )}
-          />
 
-          <label>Paciente</label>
-          <select {...register("pacienteId")} defaultValue="">
-            <option value="" disabled>
-              Selecione o paciente
-            </option>
-            {pacientes.map((p) => (
-              <option key={p.id} value={p.id}>
-                {p.nomePaciente}
-              </option>
-            ))}
-          </select>
-          <Link to="/reg-paciente" className={styles.links}>
-            Ainda não é nosso paciente?
-          </Link>
-          <label>Médico</label>
-          <select {...register("funcionarioId")} defaultValue="">
-            <option value="" disabled>
-              Selecione o médico
-            </option>
-            {funcionarios.map((f) => (
-              <option key={f.id} value={f.id}>
-                {f.nomeFuncionario}
-              </option>
-            ))}
-          </select>
+              <label>Paciente</label>
+              <select {...register("pacienteId")} defaultValue="">
+                <option value="" disabled>
+                  Selecione o paciente
+                </option>
+                {pacientes.map((p) => (
+                  <option key={p.id} value={p.id}>
+                    {p.nomePaciente}
+                  </option>
+                ))}
+              </select>
+              <Link to="/reg-paciente" className={styles.links}>
+                Ainda não é nosso paciente?
+              </Link>
+              <label>Médico</label>
+              <select {...register("funcionarioId")} defaultValue="">
+                <option value="" disabled>
+                  Selecione o médico
+                </option>
+                {funcionarios.map((f) => (
+                  <option key={f.id} value={f.id}>
+                    {f.nomeFuncionario}
+                  </option>
+                ))}
+              </select>
 
-          <label>Descrição</label>
-          <input
-            {...register("descricao")}
-            placeholder="Descreva o atendimento"
-            type="text"
-          />
+              <label>Descrição</label>
+              <input
+                {...register("descricao")}
+                placeholder="Descreva o atendimento"
+                type="text"
+              />
 
-          <button type="submit" className={styles.btnSalvar}>
-            <IoIosSave />
-          </button>
-        </form>
-      </div>
-    </div>
+              <button type="submit" className={styles.btnSalvar}>
+                <IoIosSave />
+              </button>
+            </form>
+          </div>
+        </div>
+      </Container>
+    </>
   );
 }
