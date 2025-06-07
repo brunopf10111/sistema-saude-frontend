@@ -4,23 +4,33 @@ import React from "react";
 import axios from "axios";
 import styles from "./Login.module.css";
 import { useForm } from "react-hook-form";
-
+import { IoIosLogIn } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 export default function Login() {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-
+  const navigate = useNavigate();
   const onSubmit = (data) => {
-    console.log("Dados do formulário:", data);
+    const payload = {
+      username: data.username,
+      senha: data.password,
+    };
+    console.log("Dados do formulário:", payload);
     axios
-      .post("/api/login", data)
+      .post("http://localhost:8080/sec", payload)
       .then((res) => {
         console.log("Resposta do servidor:", res.data);
+        alert("Login feito com sucesso");
+        sessionStorage.setItem("userId", res.data.toString());
+        navigate("/");
       })
       .catch((err) => {
         console.error("Erro ao fazer login:", err);
+        alert("Usuário ou senha incorretos");
       });
   };
 
@@ -31,6 +41,7 @@ export default function Login() {
           <img src="/este.jpg" alt="Hero" />
         </div>
         <div className={styles.formLog}>
+          <IoIosLogIn />
           <div className={styles.paginaAgendamento}>
             <div className={styles.areaFormCliente}>
               <form
@@ -54,6 +65,15 @@ export default function Login() {
                   type="password"
                 />
                 {errors.password && <span>{errors.password.message}</span>}
+                <a
+                  onClick={() =>
+                    alert(
+                      "Registro autorizado somente por funcionários, entre em contato (38)9-9999-9999 para mais detalhes"
+                    )
+                  }
+                >
+                  Ainda não foi registrado?
+                </a>
 
                 <button type="submit" className={styles.btnSalvar}>
                   Login

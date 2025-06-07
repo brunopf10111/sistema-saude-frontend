@@ -12,10 +12,16 @@ import styles from "./RegistrarPaciente.module.css";
 import { useNavigate } from "react-router-dom";
 
 export default function RegistrarPaciente() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const userId = sessionStorage.getItem("userId");
+    if (!userId) {
+      navigate("/login");
+    }
+  }, []);
   const { register, handleSubmit, control } = useForm();
   const [funcionarios, setFuncionarios] = useState([]);
   const [pacientes, setPacientes] = useState([]);
-  const navigate = useNavigate;
 
   useEffect(() => {
     fetch("http://localhost:8080/funcionarios?returnTypes=idAndNome")

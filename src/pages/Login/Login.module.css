@@ -1,3 +1,13 @@
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .divisor {
   display: flex;
   flex-direction: row;
@@ -12,6 +22,12 @@
 .formLog {
   width: 50%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.formLog svg {
+  font-size: 10rem;
+  color: #03b7ff;
 }
 
 .imgLog img {
@@ -24,7 +40,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f3fbfc;
   padding: 3rem 2rem;
   box-sizing: border-box;
 }
@@ -44,12 +59,20 @@
 }
 
 .formCliente input,
+.formCliente a,
 .formCliente select,
 .formCliente label,
 .formCliente button {
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
   color: #333;
+}
+.formCliente a {
+  text-decoration: underline;
+  color: #0370ff;
+}
+.formCliente a:hover {
+  cursor: pointer;
 }
 
 .formCliente input {

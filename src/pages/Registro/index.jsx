@@ -3,23 +3,43 @@ import React from "react";
 import axios from "axios";
 import styles from "./Registro.module.css"; // usando o mesmo CSS do login
 import { useForm } from "react-hook-form";
+import { FaPaperclip } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function Registro() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const userId = sessionStorage.getItem("userId");
+    if (!userId) {
+      navigate("/login");
+    }
+  }, []);
   const {
     register,
     handleSubmit,
     formState: { errors },
+    watch,
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log("Dados do formulário de registro:", data);
+    const payload = {
+      nome: data.fullName,
+      username: data.username,
+      senha: data.password,
+      cargo: data.cargo,
+    };
+    console.log("Dados do formulário de registro:", payload);
     axios
-      .post("/api/register", data) // endpoint hipotético para registro
+      .post("http://localhost:8080/sec/registrar", payload) // endpoint hipotético para registro
       .then((res) => {
         console.log("Resposta do servidor:", res.data);
+        alert("Registrado com sucesso!");
+        navigate("/login");
       })
       .catch((err) => {
         console.error("Erro ao registrar:", err);
+        alert("Registro NÃO foi realizado");
       });
   };
 
@@ -31,6 +51,7 @@ export default function Registro() {
         </div>
         <div className={styles.formLog}>
           <div className={styles.paginaAgendamento}>
+            <FaPaperclip className={styles.iconPaperclip} />
             <div className={styles.areaFormCliente}>
               <form
                 onSubmit={handleSubmit(onSubmit)}
@@ -65,24 +86,17 @@ export default function Registro() {
                     minLength: { value: 6, message: "Mínimo 6 caracteres" },
                   })}
                   placeholder="Digite sua senha"
-                  type="password"
                 />
                 {errors.password && <span>{errors.password.message}</span>}
 
                 <label>Cargo</label>
-                <select
+                <input
                   {...register("cargo", {
-                    required: "Cargo é obrigatório",
+                    required: "Inserir cargo é obrigatório",
                   })}
-                  defaultValue=""
-                >
-                  <option value="" disabled>
-                    Selecione o cargo
-                  </option>
-                  <option value="administrador">Administrador</option>
-                  <option value="usuario">Usuário</option>
-                  <option value="gerente">Gerente</option>
-                </select>
+                  placeholder="Digite seu cargo"
+                />
+
                 {errors.cargo && <span>{errors.cargo.message}</span>}
 
                 <button type="submit" className={styles.btnSalvar}>

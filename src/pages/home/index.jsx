@@ -15,7 +15,7 @@ const Home = () => {
             <h2>Sua saúde em primeiro lugar</h2>
             <p>Conheça nossos programas de prevenção e qualidade de vida</p>
             <Link to="/agendamento" className="cta-button">
-              Agende sua consulta
+              Agende uma consulta
             </Link>
           </div>
         </section>

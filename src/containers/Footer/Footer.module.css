@@ -28,7 +28,9 @@
 
 .footer-section p {
   margin: 0.5rem 0;
-  color: black;
+  color: rgb(255, 255, 255);
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .copyright {
@@ -38,5 +40,5 @@
 }
 
 .copyright p {
-  color: black;
+  color: rgb(255, 255, 255);
 }

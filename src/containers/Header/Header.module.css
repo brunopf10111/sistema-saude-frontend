@@ -24,10 +24,12 @@
 }
 
 .clinic-name {
+  text-decoration: none;
   color: #2a7f62;
   font-size: 2rem;
   margin: 0;
   font-weight: 700;
+  transition: 0.3s;
 }
 
 .clinic-slogan {
@@ -66,4 +68,35 @@
     flex-wrap: wrap;
     justify-content: center;
   }
+}
+
+.logo-container a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo-container a:focus,
+.logo-container a:hover,
+.logo-container a:active {
+  text-decoration: none;
+}
+
+.clinic-name:hover {
+  transform: translateY(-6px);
+}
+.nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #333;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-icon:hover {
+  background-color: #e0f7f0;
+  color: #2a7f62;
 }
