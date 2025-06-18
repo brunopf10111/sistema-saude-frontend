@@ -8,15 +8,16 @@ import DatePicker from "react-datepicker";
 import { IoIosSave } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
-import styles from "./Agendamento.module.css";
+import styles from "./CriarMedicamentos.module.css";
 import { useNavigate } from "react-router-dom";
 
 export default function Agendamento() {
   const navigate = useNavigate();
-  const userId = sessionStorage.getItem("userId");
+
   useEffect(() => {
+    const userId = sessionStorage.getItem("userId");
     if (!userId) {
-      navigate("/login");
+      //navigate("/login");
     }
   }, []);
   const { register, handleSubmit, control } = useForm();
@@ -35,15 +36,15 @@ export default function Agendamento() {
 
   const onSubmit = (data) => {
     const payload = {
-      data: format(data.data, "yyyy-MM-dd"),
-      pacienteId: parseInt(data.pacienteId),
-      funcionarioId: parseInt(userId),
+      validade: format(data.data, "yyyy-MM-dd"),
       descricao: data.descricao,
+      nome: data.nome,
+      quantidade: data.quantidade,
     };
 
     console.log("Enviando JSON:", payload);
 
-    fetch("http://localhost:8080/atendimentos", {
+    fetch("http://localhost:8080/medicamentos", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
@@ -53,11 +54,11 @@ export default function Agendamento() {
         return res.json();
       })
       .then((result) => {
-        alert("Agendamento realizado com sucesso!");
+        alert("Medicamento registrado com sucesso");
         console.log("Agendamento:", result);
       })
       .catch((error) => {
-        alert("Erro ao enviar agendamento");
+        alert("Erro ao registrar medicamento");
         console.error(error);
       });
   };
@@ -71,55 +72,39 @@ export default function Agendamento() {
               onSubmit={handleSubmit(onSubmit)}
               className={styles.formCliente}
             >
-              <label>Data</label>
+              <label>Nome do Medicamento</label>
+              <input
+                {...register("nome")}
+                placeholder="Escreva aqui o nome do medicamento"
+                type="text"
+              />
+              <label>Descrição</label>
+              <input
+                {...register("descricao")}
+                placeholder="Dê uma breve descrição da função do medicamento"
+                type="text"
+              />
+              <label>Quantidade (Unidade)</label>
+              <input
+                {...register("quantidade")}
+                placeholder="Escreva aqui a quantidade de unidades embaladas"
+                type="number"
+              />
+              <label>Validade</label>
               <Controller
-                name="data"
+                name="validade"
                 control={control}
                 defaultValue={new Date()}
                 render={({ field }) => (
                   <DatePicker
                     className={styles.dateInput}
-                    placeholderText="Selecione a data"
+                    placeholderText="Selecione a validade"
                     selected={field.value}
                     onChange={field.onChange}
                     dateFormat="yyyy-MM-dd"
                   />
                 )}
               />
-
-              <label>Paciente</label>
-              <select {...register("pacienteId")} defaultValue="">
-                <option value="" disabled>
-                  Selecione o paciente
-                </option>
-                {pacientes.map((p) => (
-                  <option key={p.id} value={p.id}>
-                    {p.nomePaciente}
-                  </option>
-                ))}
-              </select>
-              <Link to="/reg-paciente" className={styles.links}>
-                Ainda não é nosso paciente?
-              </Link>
-              <label>Médico</label>
-              <select {...register("funcionarioId")} defaultValue="">
-                <option value="" disabled>
-                  Selecione o médico
-                </option>
-                {funcionarios.map((f) => (
-                  <option key={f.id} value={f.id}>
-                    {f.nomeFuncionario}
-                  </option>
-                ))}
-              </select>
-
-              <label>Descrição</label>
-              <input
-                {...register("descricao")}
-                placeholder="Descreva o atendimento"
-                type="text"
-              />
-
               <button type="submit" className={styles.btnSalvar}>
                 <IoIosSave />
               </button>

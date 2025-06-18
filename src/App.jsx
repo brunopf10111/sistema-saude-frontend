@@ -3,9 +3,10 @@ import { Route, Routes } from "react-router-dom";
 import Agendamento from "./pages/Agendamento";
 import Atendimentos from "./pages/atendimentos";
 import Consultas from "./pages/consultas";
+import CriarMedicamentos from "./pages/CriarMedicamentos";
 import Home from "./pages/home";
 import Login from "./pages/Login";
-import Medicamentos from "./pages/medicamentos"; // Importa a página Medicamentos
+import Medicamentos from "./pages/medicamentos";
 import RegistrarPaciente from "./pages/RegistrarPaciente";
 import Registro from "./pages/Registro";
 
@@ -20,6 +21,7 @@ export default function App() {
       <Route path="/reg-paciente" element={<RegistrarPaciente />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Registro />} />
+      <Route path="/criar-medicamento" element={<CriarMedicamentos />} />
       {/* Rota para Medicamentos */}
     </Routes>
   );
