@@ -1,16 +1,6 @@
 import "./styles.css";
 
-import {
-  Button,
-  Container,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
-  Stack,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Button, Container, Stack, TextField, Typography } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -31,33 +21,34 @@ const Consultas = () => {
     id: "",
     data: "",
     hora: "",
-    pacienteId: "",
-    funcionarioId: "",
+    atendimentoId: "",
+    medicoId: "",
     status: "",
   });
+
   const [funcionarios, setFuncionarios] = useState([]);
   const [pacientes, setPacientes] = useState([]);
+  const [atendimentos, setAtendimentos] = useState([]);
+
   const navigate = useNavigate();
 
   useEffect(() => {
     carregarConsultas();
     carregarFuncionarios();
     carregarPacientes();
+    carregarAtendimentos();
   }, []);
 
   const carregarConsultas = () => {
     axios
       .get("http://localhost:8080/consultas")
-      .then((res) => {
-        setConsultas(res.data);
-        console.log(res.data);
-      })
+      .then((res) => setConsultas(res.data))
       .catch((err) => console.error("Erro ao buscar consultas:", err));
   };
 
   const carregarFuncionarios = () => {
     axios
-      .get("http://localhost:8080/funcionarios?returnTypes=idAndNome")
+      .get("http://localhost:8080/funcionarios?returnTypes=medicoSimples")
       .then((res) => setFuncionarios(res.data))
       .catch((err) => console.error("Erro ao buscar funcionários:", err));
   };
@@ -69,14 +60,21 @@ const Consultas = () => {
       .catch((err) => console.error("Erro ao buscar pacientes:", err));
   };
 
+  const carregarAtendimentos = () => {
+    axios
+      .get("http://localhost:8080/atendimentos/simples")
+      .then((res) => setAtendimentos(res.data))
+      .catch((err) => console.error("Erro ao buscar atendimentos:", err));
+  };
+
   const abrirModalEdicao = () => {
     if (consultaSelecionada) {
       setFormData({
         id: consultaSelecionada.id,
         data: consultaSelecionada.data,
         hora: consultaSelecionada.hora,
-        pacienteId: consultaSelecionada.pacienteId || "",
-        funcionarioId: consultaSelecionada.funcionarioId || "",
+        atendimentoId: consultaSelecionada.atendimentoId || "",
+        medicoId: consultaSelecionada.medicoId || "",
         status: consultaSelecionada.status,
       });
       setModalAberto(true);
@@ -193,7 +191,9 @@ const Consultas = () => {
           ← Voltar para Home
         </Link>
       </Container>
+
       <Footer />
+
       <Modal
         aberto={modalAberto}
         onFechar={() => setModalAberto(false)}
@@ -217,30 +217,30 @@ const Consultas = () => {
             onChange={handleInputChange}
           />
 
-          <label>Paciente</label>
+          <label>Atendimento</label>
           <select
-            name="pacienteId"
-            value={formData.pacienteId}
+            name="atendimentoId"
+            value={formData.atendimentoId}
             onChange={handleInputChange}
           >
-            <option value="">Selecione o paciente</option>
-            {pacientes.map((p) => (
-              <option key={p.id} value={p.id}>
-                {p.nomePaciente}
+            <option value="">Selecione o atendimento</option>
+            {atendimentos.map((a) => (
+              <option key={a.id} value={a.id}>
+                {a.descricao}
               </option>
             ))}
           </select>
 
           <label>Médico</label>
           <select
-            name="funcionarioId"
-            value={formData.funcionarioId}
+            name="medicoId"
+            value={formData.medicoId}
             onChange={handleInputChange}
           >
             <option value="">Selecione o médico</option>
             {funcionarios.map((f) => (
               <option key={f.id} value={f.id}>
-                {f.nomeFuncionario}
+                {f.nome}
               </option>
             ))}
           </select>

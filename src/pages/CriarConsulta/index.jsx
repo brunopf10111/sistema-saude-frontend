@@ -29,6 +29,7 @@ export default function CriarConsulta() {
   const onSubmit = (data) => {
     const payload = {
       data: format(data.data, "yyyy-MM-dd"),
+      hora: format(data.hora, "HH:mm"),
       status: data.status,
       medicoId: parseInt(data.medicoId),
       atendimentoId: parseInt(data.atendimentoId),
@@ -43,11 +44,12 @@ export default function CriarConsulta() {
     })
       .then((res) => {
         if (!res.ok) throw new Error("Erro ao registrar consulta");
+
         return res.json();
       })
       .then((result) => {
         alert("Consulta registrada com sucesso!");
-        navigate("/consultas"); // redirecionar se quiser
+        navigate("/consultas");
       })
       .catch((error) => {
         alert("Erro ao registrar consulta");
@@ -75,6 +77,26 @@ export default function CriarConsulta() {
                   onChange={field.onChange}
                   dateFormat="yyyy-MM-dd"
                   placeholderText="Selecione a data"
+                />
+              )}
+            />
+
+            <label>Hora da Consulta</label>
+            <Controller
+              name="hora"
+              control={control}
+              defaultValue={new Date()}
+              render={({ field }) => (
+                <DatePicker
+                  className={styles.dateInput}
+                  selected={field.value}
+                  onChange={field.onChange}
+                  showTimeSelect
+                  showTimeSelectOnly
+                  timeIntervals={15}
+                  timeCaption="Hora"
+                  dateFormat="HH:mm"
+                  placeholderText="Selecione a hora"
                 />
               )}
             />
