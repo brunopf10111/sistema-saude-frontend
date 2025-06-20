@@ -36,7 +36,7 @@ export default function Agendamento() {
 
   const onSubmit = (data) => {
     const payload = {
-      validade: format(data.data, "yyyy-MM-dd"),
+      validade: format(data.validade, "yyyy-mm-dd"),
       descricao: data.descricao,
       nome: data.nome,
       quantidade: data.quantidade,

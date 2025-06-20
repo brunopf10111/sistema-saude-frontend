@@ -101,10 +101,10 @@ export default function Agendamento() {
               <Link to="/reg-paciente" className={styles.links}>
                 Ainda não é nosso paciente?
               </Link>
-              <label>Médico</label>
+              <label>Atendente</label>
               <select {...register("funcionarioId")} defaultValue="">
                 <option value="" disabled>
-                  Selecione o médico
+                  Selecione quem atendeu o paciente
                 </option>
                 {funcionarios.map((f) => (
                   <option key={f.id} value={f.id}>

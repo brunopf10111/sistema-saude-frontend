@@ -40,6 +40,9 @@ export default function Header() {
           <Link to="/atendimentos" className={styles["nav-button"]}>
             Atendimentos
           </Link>
+          <Link to="/registrar-medico" className={styles["nav-button"]}>
+            Registrar Medico
+          </Link>
           <Link to="/register" className={styles["nav-icon"]}>
             <FaPaperclip />
           </Link>

@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function RegistrarPaciente() {
   const navigate = useNavigate();
+  
   useEffect(() => {
     const userId = sessionStorage.getItem("userId");
     if (!userId) {

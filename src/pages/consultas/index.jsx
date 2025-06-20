@@ -48,7 +48,10 @@ const Consultas = () => {
   const carregarConsultas = () => {
     axios
       .get("http://localhost:8080/consultas")
-      .then((res) => setConsultas(res.data))
+      .then((res) => {
+        setConsultas(res.data);
+        console.log(res.data);
+      })
       .catch((err) => console.error("Erro ao buscar consultas:", err));
   };
 
@@ -155,7 +158,7 @@ const Consultas = () => {
             variant="contained"
             color="primary"
             startIcon={<IoMdAdd />}
-            onClick={() => navigate("/agendamento")}
+            onClick={() => navigate("/criar-consulta")}
           ></Button>
         </Stack>
 
